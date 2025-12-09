@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UnifiedSocialPost",
+  "type": "object",
+  "required": [
+    "post_id",
+    "text",
+    "created_at",
+    "platform",
+    "ingestion_source"
+  ],
+  "properties": {
+    "post_id": {
+      "type": "string"
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "author_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "text": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "reddit",
+        "bluesky",
+        "mastodon",
+        "x"
+      ]
+    },
+    "ingestion_source": {
+      "type": "string"
+    },
+    "lang": {
+      "type": "string"
+    },
+    "engagement": {
+      "type": "object",
+      "properties": {
+        "likes": {
+          "type": "number"
+        },
+        "replies": {
+          "type": "number"
+        },
+        "reposts": {
+          "type": "number"
+        },
+        "quotes": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "topic": {
+      "type": "string"
+    },
+    "topic_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sentiment": {
+      "type": "object",
+      "properties": {
+        "compound": {
+          "type": "number"
+        },
+        "neg": {
+          "type": "number"
+        },
+        "neu": {
+          "type": "number"
+        },
+        "pos": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "toxicity": {
+      "type": "number"
+    },
+    "raw": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
